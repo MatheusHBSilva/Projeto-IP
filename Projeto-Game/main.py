@@ -8,7 +8,7 @@ WINDOW_WIDTH = 432
 WINDOW_HEIGHT = 768
 bg_color = (255,0,0)
 game_name = 'Alice in Cocafeland'
-icone_game = '' #necessário criar o ícone ainda
+icone_game = pygame.image.load('assets/icone.png') #necessário criar o ícone ainda
 
 def main():
 
@@ -18,6 +18,7 @@ def main():
     pygame.display.set_caption(game_name) #define o nome da janela do jogo 
     WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT)) #define o tamanho da janela do jogo
     WINDOW.fill(bg_color)
+    pygame.display.set_icon(icone_game)
     jogador = player()
 
     #loop para funcionar o game
