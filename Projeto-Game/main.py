@@ -1,12 +1,12 @@
 import pygame, sys
-from Personagem.personagem import player
+from Personagem.personagem import player   
 
 #definição dos dados básicos do jogo
-fps = 90
+fps = 60
 fpsClock = pygame.time.Clock()
 WINDOW_WIDTH = 432
 WINDOW_HEIGHT = 768
-bg_color = (0,0,0)
+bg_color = (255,0,0)
 game_name = 'Alice in Cocafeland'
 icone_game = '' #necessário criar o ícone ainda
 

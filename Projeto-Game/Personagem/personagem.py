@@ -2,72 +2,71 @@ import pygame
 
 class player:
 
-    #teremos nessa função as variáveis básicas do nosso jogador e nossa manipulação delas
     def __init__(self):
-        self.player_sprite = pygame.image.load('personagem/personagem_placeholder.png').convert() #podemos adicionar animação depois, por enquanto place holder
-        self.player_sprite = pygame.transform.scale(self.player_sprite, (40, 60)) #escala
-        self.x = 100 #x inicial do nosso objeto jogador (meio da tela)
-        self.y = 700 #y inicial do nosso jogador (final da tela)
-        self.velocidade = 1
-        self.forca_pulo = 1
-        self.massa = 3
-        self.gravidade = 10
-        self.is_jumping = False
+        self.player_sprite = pygame.image.load('personagem/personagem_placeholder.png').convert() #imagem da personagem//quando colocarmos animação, terá que ser modificado
+        self.player_sprite = pygame.transform.scale(self.player_sprite, (40, 60)) #resize do tamanho da imagem da personagem
+        self.x = 100 #x iniciai da personagem
+        self.y = 700 #y inicial da personaem
+        self.y_plataforma = self.y #esse y será utilizado para modidicar o y que ela vai descer em relação a plataforma
+        self.velocidade = 5
+        self.forca_pulo = 15
+        self.double_jump_available = False #verifica se é possível dar o double jump nesse momento
+        self.double_jump_reset = True #reseta a possibilidade de dar o double jump (essa variável é confusa, ela é mais uma bugfixer)
+        self.is_jumping = False #verifica se a personagem esta no ar 
+        self.gravidade = 1 #força de gravidade do projeto
+        self.jump_height = 0
+        self.fall = False
 
     def movimento(self):
+        #siatema de pulo
+        keys = pygame.key.get_pressed() #verifica se a tecla 'espaço' foi pressionada
 
-        event = pygame.event.get()
+        if(keys[pygame.K_SPACE] and not self.is_jumping): #pulo normal inicial, liberando o código de aumentar a altura
+            self.is_jumping = True 
+            self.jump_height = 0
 
-        '''
-        for event in event:
-            #responsável por verificar o input do player
-            if(event.type == pygame.KEYDOWN):
+        if(keys[pygame.K_SPACE] and self.double_jump_available and self.fall and self.double_jump_reset): #verifica o double jump // o double jump só é liberado caso a altura máxima aconteça, mas é possível mudar essa variável tranquilamente
+            self.double_jump_available = False
+            self.double_jump_reset = False
+            self.fall = False
+            self.jump_height = 0
+       
+        if(self.is_jumping and not self.fall): #aumenta a altura do personagem no eixo Y
+            self.y -= self.forca_pulo - self.jump_height
+            self.jump_height += 1
+            if(self.jump_height >= self.forca_pulo): #quando o personagem chega na altura máxima do pulo, ele começa a descer e autoriza o double jump
+                self.fall = True
+                self.double_jump_available = True
+                self.jump_height = 0
 
-                if(event.key == pygame.K_SPACE and not self.is_jumping):
-                    self.y += self.forca_pulo
-                    self.is_jumping = True
-
-                    print('jumped')  
-        '''
-        
-        '''
-        #faz o cálculo da gravidade caso o player esteja pulando
-        if(self.is_jumping ==  True):
-            F =(1 / 2)*self.massa*(self.gravidade**2) 
-            self.y-= F 
-            
-            self.gravidade = self.gravidade-1
-            if (gravidade < 0): 
-                self.massa =-1
-            
-            if(gravidade == -6):
-                gravidade = 10
-                self.massa= 3
+        if(self.fall): #o código de gravidade, bastante semelhante ao código de subida
+            self.y += self.gravidade + self.jump_height
+            self.jump_height += 1
+            if(self.y >= self.y_plataforma):
+                self.fall = False
                 self.is_jumping = False
-        '''
+                self.double_jump_available = True
+                self.y = self.y_plataforma
+                self.double_jump_reset = True
 
-        #faz a movimentação automática no eixo X
+        #código de controle automático da movimentação no x e y
         if(self.velocidade > 0):
             if(self.x != 432):
                 self.x += self.velocidade
-            
-            if(self.x == 396):
+
+            if(self.x >= 396):
                 self.velocidade *= -1
                 self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
-                
-        
+
         if(self.velocidade < 0):
             if(self.x != 0):
                 self.x += self.velocidade
-            
-            if(self.x == 0):
+
+            if(self.x <= 0):
                 self.velocidade *= -1
                 self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
-    
-    
+
     def desenhar_player(self):
         tela = pygame.display.get_surface()
-        tela.blit(self.player_sprite, (self.x,self.y))
-
-        #print(self.x, self.y)
-        
+        tela.fill((255, 0, 0))
+        tela.blit(self.player_sprite, (self.x, self.y))
