@@ -3,7 +3,7 @@ import pygame
 class player:
 
     def __init__(self):
-        self.player_sprite = pygame.image.load('personagem/personagem_placeholder.png').convert() #imagem da personagem//quando colocarmos animação, terá que ser modificado
+        self.player_sprite = pygame.image.load('personagem/personagem_placeholder.png').convert_alpha() #imagem da personagem//quando colocarmos animação, terá que ser modificado
         self.player_sprite = pygame.transform.scale(self.player_sprite, (40, 55)) #resize do tamanho da imagem da personagem
         self.x = 100 #x iniciai da personagem
         self.y = 700 #y inicial da personaem
