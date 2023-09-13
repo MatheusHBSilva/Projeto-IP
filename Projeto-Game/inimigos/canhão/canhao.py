@@ -28,7 +28,7 @@ class Bala:
         self.y_bala = self.canon.y + 30
         self.x_bala = self.canon.x + 40
         self.x_bala_original = self.x_bala
-        self.velocidade_bala = 2
+        self.velocidade_bala = 4
         self.atirando = False
 
         self.collider_bala = pygame.Rect(self.x_bala, self.y_bala, 15, 20)

@@ -12,9 +12,10 @@ WINDOW_HEIGHT = 768
 bg = pygame.image.load("assets/bckd_placeholder.png")
 game_name = 'Alice in Cocafeland'
 icone_game = pygame.image.load('assets/icone.png') #necessário criar o ícone ainda
-inicio = True
 
 def main():
+
+    tempo_inicial = pygame.time.get_ticks()
 
     #renderiza os eventos iniciais do jogo
     renderizar = True
@@ -45,10 +46,10 @@ def main():
             sys.exit()
 
 
-        #movimento do jogador
+        #jogador
         jogador.movimento()
         holder_info = jogador.shared_data_player() #variável que aloca as informações públicas do arquivo do jogador
-        
+
         #área colocada para os inimigos
         jogador.vida = tiro.canhao_dano(holder_info[0], holder_info[1]) #determina a vida atual depois de tirarmos a o dano pelo canhão
         tiro.atirar()
@@ -63,7 +64,8 @@ def main():
         if(renderizar):
             coletaveis_.desenhar_coletaveis()
             hud_.desenhar_hud()
-            jogador.desenhar_player()
+            jogador.animacoes(tempo_inicial)
+            tempo_inicial = jogador.set_timer(tempo_inicial)
             tiro.desenhar_bala()
             canon.desenhar_canhao()
             pygame.display.update()
