@@ -1,13 +1,16 @@
 import pygame
 
 class Player:
+
     def __init__(self):
         self.vida = 3
+        self.player_sprite = pygame.image.load('personagem/player_run/run-1.png').convert_alpha() #imagem da personagem//quando colocarmos animação, terá que ser modificado
+        #self.player_sprite = pygame.transform.scale(self.player_sprite, (30, 45)) #resize do tamanho da imagem da personagem
         self.x = 100 #x inicial da personagem
-        self.y = 735 #y inicial da personaem 735
+        self.y = 710 #y inicial da personaem
         self.y_plataforma = self.y #esse y será utilizado para modidicar o y que ela vai descer em relação a plataforma
         self.velocidade = 4
-        self.forca_pulo = 12
+        self.forca_pulo = 16
         self.double_jump_available = False #verifica se é possível dar o double jump nesse momento
         self.double_jump_reset = True #reseta a possibilidade de dar o double jump (essa variável é confusa, ela é mais uma bugfixer)
         self.is_jumping = False #verifica se a personagem esta no ar 
@@ -15,34 +18,9 @@ class Player:
         self.sliding = False
         self.jump_height = 0
         self.fall = False
-        self.inverter_esquerda = True
         self.inverter_direita = True
-        self.invertido = False
+        self.inverter_esquerda = True
 
-        #chamar sprites da animação
-        self.run = ['assets/animações/player_run/run-1.png','assets/animações/player_run/run-2.png','assets/animações/player_run/run-3.png','assets/animações/player_run/run-4.png','assets/animações/player_run/run-5.png','assets/animações/player_run/run-6.png','assets/animações/player_run/run-7.png','assets/animações/player_run/run-8.png']
-        self.jump = ['assets/animações/player_jump/jump-1.png', 'assets/animações/player_jump/jump-2.png', 'assets/animações/player_jump/jump-3.png', 'assets/animações/player_jump/jump-4.png']
-        self.falling = ['assets/animações/player_fall/fall-1.png', 'assets/animações/player_fall/fall-2.png', 'assets/animações/player_fall/fall-3.png', 'assets/animações/player_fall/fall-4.png']
-        self.run_invertida = []
-        self.jump_invertida = []
-        self.falling_invertida = []
-
-        #criando as animações invertidas
-        for val in range(len(self.run)):
-            imagem_invetida = pygame.image.load(self.run[val]).convert_alpha()
-            imagem_invetida = pygame.transform.flip(imagem_invetida, True, False)
-            self.run_invertida.append(imagem_invetida)
-        for val in range(len(self.jump)):
-            imagem_invetida = pygame.image.load(self.jump[val]).convert_alpha()
-            imagem_invetida = pygame.transform.flip(imagem_invetida, True, False)
-            self.jump_invertida.append(imagem_invetida)
-        for val in range(len(self.falling)):
-            imagem_invetida = pygame.image.load(self.falling[val]).convert_alpha()
-            imagem_invetida = pygame.transform.flip(imagem_invetida, True, False)
-            self.falling_invertida.append(imagem_invetida)
-        
-        self.animation_cooldown = 100
-        self.frame = 0
         #box collider do jogador
         self.player_collider = pygame.Rect(self.x, self.y, 25, 30)
 
@@ -77,7 +55,7 @@ class Player:
                 self.jump_height = 0
 
         if(self.fall): #o código de gravidade, bastante semelhante ao código de subida   
-            if(self.x <= 0 or self.x >= 405): #caso o personagem esteja nas paredes (beirada do mapa), ele entrará em slide pelo código abaixo e sua velocidade de descida será menor
+            if(self.x <= 0 or self.x >= 395): #caso o personagem esteja nas paredes (beirada do mapa), ele entrará em slide pelo código abaixo e sua velocidade de descida será menor
                 self.sliding = True
                 self.jump_height = 0
                 self.jump_height += 1.9
@@ -100,123 +78,36 @@ class Player:
         #porém, a velocidade só será invertida se o personagem não estiver caindo, caso ele esteja, apenas muda o eixo da imagem
         if(self.velocidade > 0): #caso a velocidade seja positiva, ou seja, indo para direita
             if(self.x != 432):
-                if(self.x < 405):
+                if(self.x < 395):
                     self.x += self.velocidade
-            if(self.x >= 405 and self.y == self.y_plataforma):
+            if(self.x >= 395 and self.y == self.y_plataforma):
                 self.velocidade *= -1
                 self.sliding = False
-            
+            if(self.x >= 395 and self.inverter_direita):
+                self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
+                self.inverter_direita = False
+                self.inverter_esquerda = True
 
         if(self.velocidade < 0): #velocidade negativa (indo para a esquerda)
-            if(self.x > 0):
+            if(self.x != 0):
                 self.x += self.velocidade
             if(self.x <= 0 and self.y == self.y_plataforma): 
                 self.velocidade *= -1
                 self.sliding = False
-            
-    def shared_data_player(self):
-        vida = self.vida
-        collider = pygame.Rect(self.x, self.y, 30, 45)
-        self.vida = vida
-        return vida, collider
+            if(self.x <= 0 and self.inverter_esquerda):
+                self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
+                self.inverter_esquerda = False
+                self.inverter_direita = True
 
-    def animacoes(self, timer):
-        #animacao de corrida 
-        current_time = pygame.time.get_ticks() #recebe a informação do tempo do frame, usado pra calcular quando vai ser chamado o próximo sprite
-        #os códigos de animações são iguais para todas as animações por enquanto, só muda a forma de chamar a animação
-        #chama a animação de cair 
-        if(self.fall):
-            if(self.frame < 4 and current_time - timer > self.animation_cooldown): #caso o frame esteja seja menor que a quantidade de sprites, e o tempo para chamar foi atingido, um novo sprite é desenhado
-                if(not self.invertido and self.x <= 405): #verifica se está invertido e se não está na beirada do mapa
-                    self.player_sprite = pygame.image.load(self.falling[self.frame])
-                elif(self.invertido and self.x >= 0): #caso esteja invertido, entra nessa parte e utiliza a lista de sprites invertidas
-                    self.player_sprite = self.falling_invertida[self.frame]
-                self.frame += 1
-            elif(self.frame >= 4):
-                self.frame = 0
-            
-            print('animação: caindo')
-        #chama a animação de pular
-        if(self.is_jumping and not self.fall):
-            if(self.frame < 4 and current_time - timer > self.animation_cooldown):
-                if(not self.invertido and self.x <= 405):
-                    self.player_sprite = pygame.image.load(self.jump[self.frame])
-                elif(self.invertido and self.x >= 0):
-                    self.player_sprite = self.jump_invertida[self.frame]
-                self.frame += 1
-            elif(self.frame >= 4):
-                self.frame = 0
-            
-            print('animação: pulando')
-        #chama a animação de correr
-        if(not self.is_jumping and not self.fall):
-            if(self.frame < 7 and current_time - timer > self.animation_cooldown):
-                if(not self.invertido and self.x <= 405):
-                    self.player_sprite = pygame.image.load(self.run[self.frame]).convert_alpha()
-                elif(self.invertido and self.x >= 0):
-                    self.player_sprite = self.run_invertida[self.frame]
-                self.frame += 1
-            elif(self.frame == 7):
-                self.frame = 0
-            
-            print('animação: correndo')
-
-        #chama a animação de cair
-        if(not self.is_jumping and self.fall):
-            if(self.frame < 4 and current_time - timer > self.animation_cooldown):
-                if(not self.invertido and self.x <= 405):
-                    self.player_sprite = pygame.image.load(self.falling[self.frame]).convert_alpha()
-                elif(self.invertido and self.x >= 0):
-                    self.player_sprite = self.falling_invertida[self.frame]
-                self.frame += 1
-            elif(self.frame == 4):
-                self.frame = 0
-            
-            print('animação: caindo')
-        
-        #inverte o eixo do personagem ao bater nas paredes do mapa
-        if(self.x >= 400 and self.inverter_direita):
-            self.inverter_direita = False
-            self.inverter_esquerda = True
-            self.invertido = True
-            self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
-            
-        if(self.x <= 0 and self.inverter_esquerda):
-            self.inverter_direita = True
-            self.inverter_esquerda = False
-            self.invertido = False
-            self.player_sprite = pygame.transform.flip(self.player_sprite, True, False)
-
-        #desenha a personagem na tela
+    def desenhar_player(self):
         tela = pygame.display.get_surface()
         tela.blit(self.player_sprite, (self.x, self.y))
 
-    
-    def set_timer(self,timer):
-        #substitui o tempo atual no script main.py (vairável usada para calcular se irá chamar ou não o próximo sprite)
-        current_time = pygame.time.get_ticks()
-        if(current_time - timer > self.animation_cooldown):
-            timer = current_time
-            return timer
-        else:
-            return timer
+    def shared_data_player(self):
+        vida = self.vida
+        collider = pygame.Rect(self.x, self.y, 30, 45)
+
+        self.vida = vida
         
-    def recuar_colisao_inimigo(self):
-        # 1 segundo de recuo
-        tempo_de_recuo = 1000
-
-        # Salva a posição original do jogador
-        x_original = self.x
-
-        # Move o jogador para trás
-        self.x -= 50
-
-        # Desenha o jogador na nova posição (recuando)
-        screen.blit(self.player_sprite, (self.x, self.y))
-        pygame.display.flip()
-
-        # Espera pelo tempo de recuo
-        pygame.time.delay(tempo_de_recuo)
-
-        # Restaura a posição original do jogador
-        self.x = x_original
+        return vida, collider
+        

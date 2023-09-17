@@ -6,8 +6,8 @@ class Canhao:
         self.sprite_canhao = pygame.image.load('inimigos/canhão/canhão_placeholder.png').convert_alpha()
         self.sprite_canhao = pygame.transform.scale(self.sprite_canhao, (80, 90))
 
-        self.x = -20
-        self.y = 700
+        self.x = -8
+        self.y = 678
 
         # Collider do canhao
         self.collider_canon = pygame.Rect(self.x, self.y, 40, 55)
@@ -28,7 +28,7 @@ class Bala:
         self.y_bala = self.canon.y + 30
         self.x_bala = self.canon.x + 40
         self.x_bala_original = self.x_bala
-        self.velocidade_bala = 4
+        self.velocidade_bala = 2
         self.atirando = False
 
         self.collider_bala = pygame.Rect(self.x_bala, self.y_bala, 15, 20)
