@@ -1,7 +1,6 @@
 import pygame
 
 class Player:
-
     def __init__(self):
         self.vida = 3
         self.x = 100 #x inicial da personagem
@@ -161,6 +160,19 @@ class Player:
                 self.frame = 0
             
             print('animação: correndo')
+
+        #chama a animação de cair
+        if(not self.is_jumping and self.fall):
+            if(self.frame < 4 and current_time - timer > self.animation_cooldown):
+                if(not self.invertido and self.x <= 405):
+                    self.player_sprite = pygame.image.load(self.falling[self.frame]).convert_alpha()
+                elif(self.invertido and self.x >= 0):
+                    self.player_sprite = self.falling_invertida[self.frame]
+                self.frame += 1
+            elif(self.frame == 4):
+                self.frame = 0
+            
+            print('animação: caindo')
         
         #inverte o eixo do personagem ao bater nas paredes do mapa
         if(self.x >= 400 and self.inverter_direita):
@@ -189,3 +201,22 @@ class Player:
         else:
             return timer
         
+    def recuar_colisao_inimigo(self):
+        # 1 segundo de recuo
+        tempo_de_recuo = 1000
+
+        # Salva a posição original do jogador
+        x_original = self.x
+
+        # Move o jogador para trás
+        self.x -= 50
+
+        # Desenha o jogador na nova posição (recuando)
+        screen.blit(self.player_sprite, (self.x, self.y))
+        pygame.display.flip()
+
+        # Espera pelo tempo de recuo
+        pygame.time.delay(tempo_de_recuo)
+
+        # Restaura a posição original do jogador
+        self.x = x_original
