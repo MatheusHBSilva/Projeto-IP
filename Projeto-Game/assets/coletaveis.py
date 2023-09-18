@@ -28,3 +28,13 @@ class Coletaveis:
         else:
             tela = pygame.display.get_surface()
             tela.blit(self.heart, (1000, 1000))
+
+
+    def moeda(self):
+        self.coin = pygame.image.load('assets/icone.png').convert_alpha()
+        self.coin = pygame.transform.scale(self.coin, (30, 35))
+        self.x = 200
+        self.y = 600
+        self.colisor_coin = pygame.Rect(self.x, self.y, 30, 35)
+        self.collected_coin = False
+        self.collecting_coin = False
