@@ -30,13 +30,13 @@ class Hud:
         tela = pygame.display.get_surface()
         tela.blit(self.sprite_vida_atual, (self.x_heart, self.y_heart))
 
-    
+    #posicção da CoinBar
     def coin_bar(self):
         self.sprite_coin = ['assets/CoinBar/coinBar#1.png','assets/CoinBar/coinBar#2.png','assets/CoinBar/coinBar#3.png','assets/CoinBar/coinBar#4.png']
         self.x_coin = 30
         self.y_heart = 0
         self.sprite_coin_atual = self.sprite_coin[0]
-    
+    #Mudança da animação da moeda
     def coin_change(self,moeda):
         if(moeda == 0):
             self.sprite_coin_atual = self.sprite_coin[0]
