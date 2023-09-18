@@ -29,3 +29,28 @@ class Hud:
     def desenhar_hud(self):
         tela = pygame.display.get_surface()
         tela.blit(self.sprite_vida_atual, (self.x_heart, self.y_heart))
+
+    
+    def coin_bar(self):
+        self.sprite_coin = ['assets/CoinBar/coinBar#1.png','assets/CoinBar/coinBar#2.png','assets/CoinBar/coinBar#3.png','assets/CoinBar/coinBar#4.png']
+        self.x_coin = 30
+        self.y_heart = 0
+        self.sprite_coin_atual = self.sprite_coin[0]
+    
+    def coin_change(self,moeda):
+        if(moeda == 0):
+            self.sprite_coin_atual = self.sprite_coin[0]
+            self.sprite_coin_atual = pygame.image.load(self.sprite_coin_atual).convert_alpha()
+            self.sprite_coin_atual = pygame.transform.scale(self.sprite_vida_atual, (100, 50))
+        elif(moeda == 1):
+            self.sprite_coin_atual = self.sprite_coin[1]
+            self.sprite_coin_atual = pygame.image.load(self.sprite_coin_atual).convert_alpha()
+            self.sprite_coin_atual = pygame.transform.scale(self.sprite_vida_atual, (100, 50))
+        elif(moeda == 2):
+            self.sprite_coin_atual = self.sprite_coin_atual[2]
+            self.sprite_coin_atual = pygame.image.load(self.sprite_coin_atual).convert_alpha()
+            self.sprite_coin_atual = pygame.transform.scale(self.sprite_vida_atual, (100, 50))
+        elif(moeda == 3):
+            self.sprite_coin_atual = self.sprite_coin_atual[3]
+            self.sprite_coin_atual = pygame.image.load(self.sprite_coin_atual).convert_alpha()
+            self.sprite_coin_atual = pygame.transform.scale(self.sprite_vida_atual, (100, 50))
