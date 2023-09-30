@@ -144,7 +144,7 @@ def main():
                     jogador.dinheiro = moedas_.hitbox(holder_info[1], jogador.dinheiro, i)
                 for i in range(tiro.qtd_canhao):#canhao
                     jogador.vida = tiro.canhao_dano(jogador.vida, holder_info[1], i)
-                    tiro.atirar(i, holder_info[1])
+                    tiro.atirar(i)
                     tiro.desenhar(i)
 
                 controladora_.show_text()
