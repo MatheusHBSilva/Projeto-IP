@@ -11,7 +11,7 @@ class Hearts:
         self.collecting_heart = False
 
         #listas para spawnar o coração individualmente
-        self.num_of_hearts = 5
+        self.num_of_hearts = 3
         self.corações = []
         self.xs = []
         self.ys = []

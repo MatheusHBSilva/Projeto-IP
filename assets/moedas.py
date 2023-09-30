@@ -10,7 +10,7 @@ class Moedas:
         self.capital_acumulado = 0
 
         #listas para spawnar o coração individualmente
-        self.num_of_coins = 5
+        self.num_of_coins = 3
         self.moedas = []
         self.xs = []
         self.ys = []
