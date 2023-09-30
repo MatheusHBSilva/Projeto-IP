@@ -152,6 +152,7 @@ def main():
 
         else:
             mm.desenhar()
+            mm.logicamenu()
 
         #dados para atualizar o jogo a cada loop
         pygame.display.update()
