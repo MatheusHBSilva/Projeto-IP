@@ -74,4 +74,12 @@ Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas es
 
 10. Módulo main.py: O módulo central que coordena todas as operações do jogo, incluindo inicialização, execução, gestão de eventos e encerramento do jogo.
 
+# Conceitos Importantes
 
+    Estruturas Condicionais
+ As estruturas condicionais( que foram introduzidas no princípio da disciplina foram fundamentais para criar a lógica,o fluxo e os desafios do jogo.Por exemplo, ao detectar uma colisão entre a personagem do jogador e um obstáculo como os disparos do canhão, um bloco de código é executado para lidar com a colisão, como reduzir os pontos de vida do jogador ou reiniciar o nível. Um mecanismo análogo ao funcionamento das colisões com os demais coletaveis.
+
+Além disso, essas estruturas também foram cruciais para a construção da física jogo, bem como para a implementação da lógica de deslocamento da persoangem.As estruturas condicionais podem ser usadas para aplicar efeitos de gravidade à personagem e permitir que ela pule. Por exemplo, a gravidade é aplicada constantemente, mas a personagem só pode saltar quando estiver no chão. Em última instância, as estruturas condicionais foram úteis para definir limites de movimento da personagem, garantindo que ela não saia dos limites do cenário do jogo.
+
+     Laços de repetição
+   Os laços foram mais um recurso utiliza do para a concretização do projeto de software interativo. Os loops foram  aproveitados sobretudo para simplificar tarefas repetitivas, como  na implementação de animações e na definição das coordenadas dos elementos coletavies. Ao usar loops "while" e "for", pudemos criar estuturas mais sintéticas e econômicos para determinar se o jogador atingiu os objetivos do jogo. A seguir se segue um trecho do modulo hearts.py contendo laços de repetição:
