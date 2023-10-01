@@ -3,7 +3,7 @@ Repositório do projeto final de IP
 O jogo "Alice in Cocafeland" foi desenvolvido como parte do projeto da disciplina IF668 - Introdução à Programação. Este jogo de plataforma desafia os jogadores a ajudar Alice a encontrar sua coca café perdida, superando obstáculos e coletando moedas para alcançar seu objetivo final.
 
 <div align="center">
-<img src="https://github.com/MatheusHBSilva/Projeto-IP/assets/136330380/41ce83db-4c79-467c-b319-7967be10f51d" width="300px" />
+<img src="https://github.com/MatheusHBSilva/Projeto-IP/assets/136330380/41ce83db-4c79-467c-b319-7967be10f51d" width="1000px" />
 </div>
 
 # Execução 
@@ -15,7 +15,7 @@ Abra a pasta projetoIP no seu editor de escolha.
 Execute o arquivo main.py.
 
 <div align="center">
-<img src="https://github.com/MatheusHBSilva/Projeto-IP/assets/136330380/b83b396c-8907-4568-9c5c-1607117dea78" width="500px" />
+<img src="https://github.com/MatheusHBSilva/Projeto-IP/assets/136330380/b83b396c-8907-4568-9c5c-1607117dea78" width="1500px" />
 </div>
 
 # Movimentação
