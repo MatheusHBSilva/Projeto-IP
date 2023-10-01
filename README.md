@@ -1,0 +1,70 @@
+# Projeto-IP
+Repositório do projeto final de IP
+O jogo "Alice in Cocafeland" foi desenvolvido como parte do projeto da disciplina IF668 - Introdução à Programação. Este jogo de plataforma desafia os jogadores a ajudar Alice a encontrar sua coca café perdida, superando obstáculos e coletando moedas para alcançar seu objetivo final.
+
+Execução 
+
+Para execução do código, é necessário que você possua Python e pygame instalados.
+
+Faça o download do branch main deste repositório e extraia o arquivo .zip.
+Abra a pasta projetoIP no seu editor de escolha.
+Execute o arquivo main.py.
+
+
+Movimentação
+
+A Movimentação do jogador dentro do jogo se deve exclusivamente ao espaço, para pular.
+Alguns outros botões foram adicionados, como ESC para fechar o jogo.
+
+
+Ferramentas
+
+
+1. Piskel: Esta ferramenta foi empregada na criação de pixel arts, incluindo algumas das artes do jogo e elementos do menu.
+
+2. Gimp: Utilizado para edição de imagens, o Gimp desempenhou um papel importante no processo, especialmente no recorte das pixel arts que foram incorporadas ao jogo.
+
+3. Pygame: Essa biblioteca Python foi a espinha dorsal do projeto, usada em todo o código, especialmente no módulo principal do jogo. Pygame é focado no desenvolvimento de jogos 2D e fornece recursos essenciais para a criação de jogos interativos.
+
+4. Random: A biblioteca Random em Python desempenhou um papel fundamental na geração de elementos aleatórios no jogo, como coletáveis (moedas e vidas) e na aleatorização de eventos, tornando o jogo dinâmico.
+
+5. System: A biblioteca System em Python foi utilizada para gerenciar a inicialização e o encerramento do jogo, garantindo um fluxo adequado e controle sobre o ciclo de vida do jogo.
+
+
+
+Problemas e Desafios
+
+Durante a execução do projeto, enfrentamos diversos desafios, sendo um deles particularmente destacado: o planejamento deficiente. Ficou evidente que o planejamento inicial tinha falhas significativas, tanto na concepção quanto na distribuição das tarefas. Em alguns casos, membros trabalharam na mesma parte do projeto de maneiras distintas, devido ao planejamento inadequado. Além disso, a divisão de tarefas não considerou devidamente os aspectos de longo prazo.
+
+Problemas também surgiram em relação à comunicação entre os membros da equipe. A escolha de aplicativos como Discord e WhatsApp para essa finalidade revelou-se insuficiente, pois as mensagens nesses aplicativos podem ser facilmente perdidas ou não visualizadas pelos membros.
+
+Além disso, nossas dificuldades em relação ao conhecimento da biblioteca Pygame e da programação orientada a objetos impactaram significativamente o projeto. A falta de familiaridade com essas tecnologias afetou tanto o planejamento, pois não sabíamos quanto tempo seria necessário para implementar cada função, quanto a execução do projeto, uma vez que o tempo de aprendizado dessas novas tecnologias atrasou tanto a distribuição de tarefas quanto o desenvolvimento em si. 
+
+Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas essas dificuldades se transformaram em oportunidades de aprendizado valiosas. A equipe aprendeu não apenas a trabalhar de forma mais eficaz em conjunto, mas também a adquirir conhecimento essencial sobre as tecnologias necessárias para o desenvolvimento do jogo, além de habilidades como gerenciamento de projetos e resolução de problemas.
+
+
+Organização do código
+
+ 
+
+1. Módulo personagem.py: Este módulo é responsável por definir as características e comportamentos do personagem principal do jogo, incluindo sua movimentação e interação com o ambiente.
+
+2. Módulo menu.py: Este módulo cria a interface inicial do jogo, introduzindo o jogador ao ambiente virtual e exibindo as opções disponíveis.
+
+3. Módulo controladora.py: A controladora gerencia o fluxo do jogo, determinando quando e como o jogador avança de nível, carregando recursos e configurando elementos do jogo.
+
+4. Módulo hearts.py: Este módulo controla a mecânica de coleta de corações, que representam a saúde do jogador, incluindo detecção de colisões e atualização da interface.
+
+5. Módulo moedas.py: Responsável pela coleta de moedas no jogo, incluindo a exibição do progresso do jogador na interface e a definição das condições de vitória.
+
+6. Módulo Hud.py: Gerencia elementos da interface, como a barra de vida e o registro de desempenho na coleta de moedas, refletindo as mudanças no estado do jogador.
+
+7. Módulo terrain.py:  Cria o cenário do jogo, incluindo plataformas e obstáculos, proporcionando o ambiente no qual a jogabilidade ocorre.
+
+8. Módulo canhão.py: Responsável pela criação e comportamento do canhão inimigo, incluindo disparos de balas e detecção de colisões com o jogador.
+
+9. Módulo Assets: Armazena todos os recursos visuais e sonoros usados no jogo, como imagens, sprites e arquivos de áudio.
+
+10. Módulo main.py: O módulo central que coordena todas as operações do jogo, incluindo inicialização, execução, gestão de eventos e encerramento do jogo.
+
+
