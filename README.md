@@ -82,4 +82,12 @@ Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas es
 Além disso, essas estruturas também foram cruciais para a construção da física jogo, bem como para a implementação da lógica de deslocamento da persoangem.As estruturas condicionais podem ser usadas para aplicar efeitos de gravidade à personagem e permitir que ela pule. Por exemplo, a gravidade é aplicada constantemente, mas a personagem só pode saltar quando estiver no chão. Em última instância, as estruturas condicionais foram úteis para definir limites de movimento da personagem, garantindo que ela não saia dos limites do cenário do jogo.
 
      Laços de repetição
-   Os laços foram mais um recurso utiliza do para a concretização do projeto de software interativo. Os loops foram  aproveitados sobretudo para simplificar tarefas repetitivas, como  na implementação de animações e na definição das coordenadas dos elementos coletavies. Ao usar loops "while" e "for", pudemos criar estuturas mais sintéticas e econômicos para determinar se o jogador atingiu os objetivos do jogo. A seguir se segue um trecho do modulo hearts.py contendo laços de repetição:
+   Os laços foram mais um recurso utiliza do para a concretização do projeto de software interativo. Os loops foram  aproveitados sobretudo para simplificar tarefas repetitivas, como  na implementação de animações e na definição das coordenadas dos elementos coletavies. Ao usar loops "while" e "for", pudemos criar estuturas mais sintéticas e econômicos para determinar se o jogador atingiu os objetivos do jogo.
+
+    Lista
+  As listas foram mais um conceito aprendido e que teve participação marcante em  diversas esferas do código-fonte.Esse recurso foi empregado, por exemplo, para  armazenar as coordenadas que delimitam as regiões de posicionamento dos coletaveis, indicando onde esses objetos poderiam aparecer.Essa abordagem reflete as boas práticas de programação ao reduzir a redundância de código e tornar o desenvolvimento e a manutenção do jogo mais eficazes.
+  
+     Tupla
+   As tuplas, embora menos evidentes do que outras estruturas de dados como listas ou classes, desempenharam um papel essencial na nossa implementação. Elas foram empregadas de forma seletiva para atender a requisitos específicos e oferecer vantagens importantes em certos contextos do código.Uma das características marcantes das tuplas é a imutabilidade, o que significa que uma vez criada, uma tupla não pode ser modificada. Isso as tornou ideais para representar coordenadas fixas no nosso jogo, como as posições iniciais de plataformas, objetos colecionáveis e inimigos. Essas coordenadas não deveriam ser alteradas durante a execução do jogo, e as tuplas garantiram que essas posições permanecessem constantes.
+
+ 
