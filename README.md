@@ -2,7 +2,7 @@
 Repositório do projeto final de IP
 O jogo "Alice in Cocafeland" foi desenvolvido como parte do projeto da disciplina IF668 - Introdução à Programação. Este jogo de plataforma desafia os jogadores a ajudar Alice a encontrar sua coca café perdida, superando obstáculos e coletando moedas para alcançar seu objetivo final.
 
-Execução 
+# Execução 
 
 Para execução do código, é necessário que você possua Python e pygame instalados.
 
@@ -11,13 +11,13 @@ Abra a pasta projetoIP no seu editor de escolha.
 Execute o arquivo main.py.
 
 
-Movimentação
+# Movimentação
 
 A Movimentação do jogador dentro do jogo se deve exclusivamente ao espaço, para pular.
 Alguns outros botões foram adicionados, como ESC para fechar o jogo.
 
 
-Ferramentas
+# Ferramentas
 
 
 1. Piskel: Esta ferramenta foi empregada na criação de pixel arts, incluindo algumas das artes do jogo e elementos do menu.
@@ -32,7 +32,7 @@ Ferramentas
 
 
 
-Problemas e Desafios
+# Problemas e Desafios
 
 Durante a execução do projeto, enfrentamos diversos desafios, sendo um deles particularmente destacado: o planejamento deficiente. Ficou evidente que o planejamento inicial tinha falhas significativas, tanto na concepção quanto na distribuição das tarefas. Em alguns casos, membros trabalharam na mesma parte do projeto de maneiras distintas, devido ao planejamento inadequado. Além disso, a divisão de tarefas não considerou devidamente os aspectos de longo prazo.
 
@@ -43,7 +43,7 @@ Além disso, nossas dificuldades em relação ao conhecimento da biblioteca Pyga
 Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas essas dificuldades se transformaram em oportunidades de aprendizado valiosas. A equipe aprendeu não apenas a trabalhar de forma mais eficaz em conjunto, mas também a adquirir conhecimento essencial sobre as tecnologias necessárias para o desenvolvimento do jogo, além de habilidades como gerenciamento de projetos e resolução de problemas.
 
 
-Organização do código
+# Organização do código
 
  
 
