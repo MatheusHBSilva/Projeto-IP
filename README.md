@@ -24,6 +24,11 @@ A Movimentação do jogador dentro do jogo se deve exclusivamente ao espaço, pa
 Alguns outros botões foram adicionados, como ESC para fechar o jogo.
 
 
+# Relatório do projeto
+     https://www.canva.com/design/DAFvxieky6E/xopJUoeL12OwQvV5SFgZ2g/edit?utm_content=DAFvxieky6E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Link para um Relatório mais aprofundado do projeto
+
+
 # Ferramentas
 
 
@@ -89,6 +94,3 @@ Além disso, essas estruturas também foram cruciais para a construção da fís
   
      Tupla
    As tuplas, embora menos evidentes do que outras estruturas de dados como listas ou classes, desempenharam um papel essencial na nossa implementação. Elas foram empregadas de forma seletiva para atender a requisitos específicos e oferecer vantagens importantes em certos contextos do código.Uma das características marcantes das tuplas é a imutabilidade, o que significa que uma vez criada, uma tupla não pode ser modificada. Isso as tornou ideais para representar coordenadas fixas no nosso jogo, como as posições iniciais de plataformas, objetos colecionáveis e inimigos. Essas coordenadas não deveriam ser alteradas durante a execução do jogo, e as tuplas garantiram que essas posições permanecessem constantes.
-
-# Documento do projeto
-     https://www.canva.com/design/DAFvxieky6E/xopJUoeL12OwQvV5SFgZ2g/edit?utm_content=DAFvxieky6E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
