@@ -54,6 +54,14 @@ Além disso, nossas dificuldades em relação ao conhecimento da biblioteca Pyga
 
 Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas essas dificuldades se transformaram em oportunidades de aprendizado valiosas. A equipe aprendeu não apenas a trabalhar de forma mais eficaz em conjunto, mas também a adquirir conhecimento essencial sobre as tecnologias necessárias para o desenvolvimento do jogo, além de habilidades como gerenciamento de projetos e resolução de problemas.
 
+# Membros da Equipe e suas funções
+
+Abner Adriel(aasl) - Responsável pela criação das artes, implementação das moedas e elaboração do relatório e slide.
+Arlindo Silva() - Responsável pela implementação do personagem, elaboração do relatório e slide.
+Juan() - Responsável pela implementação da vida.
+Matheus Álefe() - Responsável pela criação das artes, implementação dos inimigos e elaboração do relatório.
+Matheus Silva() - Responsável pela implementação do áudio, implementação do menu, implementação do main e correção de bugs.
+
 
 # Organização do código
 
