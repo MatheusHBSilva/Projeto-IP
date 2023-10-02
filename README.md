@@ -57,10 +57,10 @@ Em resumo, o grupo enfrentou desafios significativos ao longo do projeto, mas es
 # Membros da Equipe e suas funções
 
 Abner Adriel(aasl) - Responsável pela criação das artes, implementação das moedas e elaboração do relatório e slide.
-Arlindo Silva() - Responsável pela implementação do personagem, elaboração do relatório e slide.
-Juan() - Responsável pela implementação da vida.
-Matheus Álefe() - Responsável pela criação das artes, implementação dos inimigos e elaboração do relatório.
-Matheus Silva() - Responsável pela implementação do áudio, implementação do menu, implementação do main e correção de bugs.
+Arlindo Silva(apsj) - Responsável pela implementação do personagem, elaboração do relatório e slide.
+Juan Lucas() - Responsável pela implementação da vida.
+Matheus Álefe(mabs2) - Responsável pela criação das artes, implementação dos inimigos e elaboração do relatório.
+Matheus Silva(mhbs4) - Responsável pela implementação do áudio, implementação do menu, implementação do main e correção de bugs.
 
 
 # Organização do código
