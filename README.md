@@ -60,7 +60,7 @@ Abner Adriel(aasl) - Responsável pela criação das artes, implementação das 
 
 Arlindo Silva(apsj) - Responsável pela implementação do personagem, elaboração do relatório e slide.
 
-Juan Lucas() - Responsável pela implementação da vida.
+Juan Lucas(jlcm) - Responsável pela implementação da vida.
 
 Matheus Álefe(mabs2) - Responsável pela criação das artes, implementação dos inimigos e elaboração do relatório.
 
